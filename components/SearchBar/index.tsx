@@ -1,10 +1,15 @@
+
 "use client";
 import React, { useState } from "react";
 import SearchManufacturer from "../SearchManufacturer";
 
 const SearchBar = () => {
   const [manufacturer, setManufacturer] = useState("");
-  const handleSearch = () => {};
+
+  const handleSearch = (e: any) => {
+    e.preventDefault();
+    console.log("Selected Manufacturer:", manufacturer);
+  };
 
   return (
     <form className="searchbar" onSubmit={handleSearch}>
