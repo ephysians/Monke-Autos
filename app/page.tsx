@@ -1,6 +1,6 @@
 import { CarCard, CustomFilter, Heros, SearchBar } from "@/components";
 import { fetchCars } from "@/utils";
-import { log } from "console";
+import Image from "next/image";
 
 export default async function Home() {
   const { cars: allCars, message } = await fetchCars("camry");
@@ -32,10 +32,8 @@ export default async function Home() {
         {/* Here I am conditionally displaying the cars */}
         {!isDataEmpty ? (
           <section>
-             <div>
+            <div>
               {allCars?.map((car, index) => {
-                // Log each car object inside the map function
-                console.log(`Car ${index + 1}:`, car);
                 return <CarCard key={index} car={car} />;
               })}
             </div>
@@ -46,6 +44,7 @@ export default async function Home() {
               !Oops, no result found
             </h2>
             <p>{message}</p> {/* Display the message */}
+            
           </div>
         )}
       </div>
