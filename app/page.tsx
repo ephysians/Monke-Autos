@@ -1,9 +1,11 @@
-import { Heros, SearchBar, CustomeFilter } from "@/components";
+import { CarCard, CustomFilter, Heros, SearchBar } from "@/components";
 import { fetchCars } from "@/utils";
+import { log } from "console";
 
 export default async function Home() {
   const { cars: allCars, message } = await fetchCars("camry");
 
+  // checking if data from endpoint is empty, using the variable in the ternary below to set incoming data.
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1;
 
   return (
@@ -22,14 +24,22 @@ export default async function Home() {
           <SearchBar />
 
           <div className="home__filter-container">
-            <CustomeFilter title="fuel" />
-            <CustomeFilter title="year" />
+            <CustomFilter title="fuel" />
+            <CustomFilter title="year" />
           </div>
         </div>
 
         {/* Here I am conditionally displaying the cars */}
         {!isDataEmpty ? (
-          <section>WE HAVE CARS</section>
+          <section>
+             <div>
+              {allCars?.map((car, index) => {
+                // Log each car object inside the map function
+                console.log(`Car ${index + 1}:`, car);
+                return <CarCard key={index} car={car} />;
+              })}
+            </div>
+          </section>
         ) : (
           <div className="home__error-container">
             <h2 className="text-black text-xl font-bold">
