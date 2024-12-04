@@ -1,20 +1,11 @@
-// app/page.tsx
+import { Heros, SearchBar, CustomeFilter } from "@/components";
+import { fetchCars } from "@/utils";
 
-"use client"; // Add this at the top of your file
+export default async function Home() {
+  const { cars: allCars, message } = await fetchCars("camry");
 
-import { Heros } from "@/components";
-import SearchBar from "../components/SearchBar";
-import CustomeFilter from "../components/CustomeFilter";
-import { Metadata } from "next";
-import { useState } from "react";
+  const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1;
 
-// export const metadata: Metadata = {
-//   title: "Luxury SUV Sales, Repairs & Maintenance | Premium Service",
-//   description:
-//     "Discover top-notch luxury SUVs, expert repairs, and reliable maintenance services. Elevate your driving experience with seamless solutions tailored to premium vehicles.",
-// };
-
-export default function Home() {
   return (
     <main className="overflow-hidden">
       <Heros />
@@ -28,13 +19,25 @@ export default function Home() {
         </div>
 
         <div className="home__filters">
-        <SearchBar />
+          <SearchBar />
 
-        <div className="home__filter-container">
-        <CustomeFilter title="fuel" />
-        <CustomeFilter title="year" />
+          <div className="home__filter-container">
+            <CustomeFilter title="fuel" />
+            <CustomeFilter title="year" />
+          </div>
         </div>
-        </div>
+
+        {/* Here I am conditionally displaying the cars */}
+        {!isDataEmpty ? (
+          <section>WE HAVE CARS</section>
+        ) : (
+          <div className="home__error-container">
+            <h2 className="text-black text-xl font-bold">
+              !Oops, no result found
+            </h2>
+            <p>{message}</p> {/* Display the message */}
+          </div>
+        )}
       </div>
     </main>
   );
