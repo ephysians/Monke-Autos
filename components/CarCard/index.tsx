@@ -5,13 +5,14 @@ import { useState } from "react";
 import { CarProps } from "@/types";
 import { calculateServiceCost } from "@/utils";
 import CustomButton from "../CustomButton";
+import CarDetails from "../CarDetails";
 
 interface CarCarProps {
   car: CarProps;
 }
 
 const CarCard = ({ car }: CarCarProps) => {
-  const [test, setTest] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
   const {
     city_mpg,
@@ -24,21 +25,26 @@ const CarCard = ({ car }: CarCarProps) => {
     fuel_type,
   } = car;
 
-  const carRent = calculateServiceCost(city_mpg, year);
+  const carService = calculateServiceCost(city_mpg, year);
 
   return (
-    <div className="car-card group">
+    <div className="car-card group w-1/2">
       <div className="car-card__content">
         <h2 className="car-card__content-title">
-          {make}
-          {model}
+          {make} {model}
         </h2>
       </div>
-      <p className="flex mt-6 text-[32px] font-extrabold">
-        <span className="self-start text-[14px] font-semibold">N</span>
-        {carRent}
-        <span className="self-end text-[14px] font-medium">/Service</span>
+
+      <p className="flex mt-6 text-[32px] leading-[38px] font-extrabold">
+        <span className="self-start text-[14px] leading-[17px] font-semibold">
+          N
+        </span>
+        {carService}
+        <span className="self-end text-[14px] leading-[17px] font-medium">
+          /Service
+        </span>
       </p>
+
       <div className="relative w-full h-40 my-3 object-contain">
         <Image
           src="/hero.png"
@@ -48,8 +54,9 @@ const CarCard = ({ car }: CarCarProps) => {
           className="object-contain"
         />
       </div>
-      <div className="relative flex placeholder:w-full mt-2">
-        <div className="flex group-hover:invisible w-full justify-between text-gray-50">
+
+      <div className="relative flex flex-col w-full mt-2">
+        <div className="flex group-hover:invisible w-full justify-between text-grey">
           <div className="flex flex-col justify-center items-center gap-2">
             <Image
               src="/steering-wheel.svg"
@@ -61,22 +68,31 @@ const CarCard = ({ car }: CarCarProps) => {
               {transmission === "a" ? "Automatic" : "Manual"}
             </p>
           </div>
-          <div className="flex flex-col justify-center items-center gap-2">
-            <Image src="/tire.svg" width={20} height={20} alt="tire " />
-            <p className="text-[14px]">{drive.toUpperCase()}</p>
+          <div className="car-card__icon">
+            <Image src="/tire.svg" width={20} height={20} alt="tire" />
+            <p className="car-card__icon-text">{drive.toUpperCase()}</p>
           </div>
-          <div className="flex flex-col justify-center items-center gap-2">
+          <div className="car-card__icon">
             <Image src="/gas.svg" width={20} height={20} alt="gas" />
-            <p className="text-[14px]">{city_mpg} MPG</p>
+            <p className="car-card__icon-text">{city_mpg}MPG</p>
           </div>
         </div>
-        <div className="card-card__btn-container">
+
+        <div className="card-card__btn-container mt-4">
           <CustomButton
             title="View More"
-            containerStyles="w-full py-[16px] rounded bg-primary-blue"
+            containerStyles="w-full py-[16px] rounded-md bg-primary-blue"
+            textStyles="text-white text-[14px] leading-[17px] font-bold"
+            rightIcon="/right-arrow.svg"
+            handleClick={() => setIsOpen(true)}
           />
         </div>
       </div>
+      <CarDetails
+        car={car}
+        isOpen={isOpen}
+        closeModal={() => setIsOpen(false)}
+      />
     </div>
   );
 };

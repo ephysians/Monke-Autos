@@ -3,7 +3,7 @@ import { fetchCars } from "@/utils";
 import Image from "next/image";
 
 export default async function Home() {
-  const { cars: allCars, message } = await fetchCars("camry");
+  const { cars: allCars, message } = await fetchCars("carrera");
 
   // checking if data from endpoint is empty, using the variable in the ternary below to set incoming data.
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1;
@@ -43,7 +43,7 @@ export default async function Home() {
             <h2 className="text-black text-xl font-bold">
               !Oops, no result found
             </h2>
-            <p>{message}</p> {/* Display the message */}
+            <p>{message}</p> 
             
           </div>
         )}
