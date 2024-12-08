@@ -4,7 +4,7 @@ import { fetchCars } from "@/utils";
 import Image from "next/image";
 
 export default async function Home() {
-  const { cars: allCars, message } = await fetchCars("BMW");
+  const { cars: allCars, message } = await fetchCars("q3");
 
   // checking if data from endpoint is empty, using the variable in the ternary below to set incoming data.
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1;

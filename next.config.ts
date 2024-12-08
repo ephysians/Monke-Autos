@@ -1,23 +1,4 @@
-// import type { NextConfig } from "next";
-
-// const nextConfig: NextConfig = {
-//   /* config options here */
-// };
-
-// export default nextConfig;
-
-
-
-// /** @type {import('next').NextConfig} */
-// const nextConfig = {
-//   images: {
-//     domains: ['cdn.imagin.studio'], // Add the hostname here
-//   },
-// };
-
-// module.exports = nextConfig;
-
-
+// NOTE The images.domains option has been deprecated in recent versions of Next.js (15.0+). Instead, you should use the images.remotePatterns configuration for external image handling.
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
