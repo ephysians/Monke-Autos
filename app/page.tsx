@@ -1,4 +1,5 @@
 import { CarCard, CustomFilter, Heros, SearchBar } from "@/components";
+import { fuels, yearsOfProduction } from "@/constants";
 import { fetchCars } from "@/utils";
 import Image from "next/image";
 
@@ -9,7 +10,8 @@ export default async function Home() {
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1;
 
   return (
-    <main className="overflow-hidden">
+    <main className='overflow-hidden'>
+
       <Heros />
       <div className="mt-12 padding-x padding-y max-width" id="discover">
         <div className="home__text-container">
@@ -23,16 +25,16 @@ export default async function Home() {
         <div className="home__filters">
           <SearchBar />
 
-          <div className="home__filter-container">
-            <CustomFilter title="fuel" />
-            <CustomFilter title="year" />
+          <div className='home__filter-container'>
+            <CustomFilter title='fuel' options={fuels} />
+            <CustomFilter title='year' options={yearsOfProduction} />
           </div>
         </div>
 
         {/* Here I am conditionally displaying the cars */}
         {!isDataEmpty ? (
           <section >
-            <div>
+            <div className="flex gap-4 overflow-x-auto">
               {allCars?.map((car, index) => {
                 return <CarCard key={index} car={car} />;
               })}
