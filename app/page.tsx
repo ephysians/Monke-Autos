@@ -3,7 +3,7 @@ import { fetchCars } from "@/utils";
 import Image from "next/image";
 
 export default async function Home() {
-  const { cars: allCars, message } = await fetchCars("carrera");
+  const { cars: allCars, message } = await fetchCars("BMW");
 
   // checking if data from endpoint is empty, using the variable in the ternary below to set incoming data.
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1;
@@ -31,7 +31,7 @@ export default async function Home() {
 
         {/* Here I am conditionally displaying the cars */}
         {!isDataEmpty ? (
-          <section>
+          <section >
             <div>
               {allCars?.map((car, index) => {
                 return <CarCard key={index} car={car} />;
