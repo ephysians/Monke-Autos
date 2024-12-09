@@ -5,7 +5,7 @@ import { footerLinks } from "@/constants";
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col text-black-100 mt-5 border-t border-gray-100">
+    <footer className="flex flex-col text-white mt-5 border-t border-gray-100 bg-black sm:px-16">
       <div className="flex max-md:flex-col flex-wrap justify-between gap-5 sm:px-16 px-6 py-10">
         <div className="flex flex-col justify-start item-start gap-6">
           <Image
@@ -15,7 +15,7 @@ const Footer = () => {
             height={18}
             className="object-contain"
           />
-          <p className="text-base text-gray-700">
+          <p className="text-base text-white">
             Moneks Autos 2024 <br />
             All right reserved &copy;
           </p>
@@ -37,8 +37,8 @@ const Footer = () => {
             </div>
           ))}
         </div>
-      </div>
-<div className="flex justify-between items-center flex-wrap mt-10 b text-white border-t border-gray-100 bg-black-100 sm:px-16 py-10">
+      </div>  {/* flex-1 flex sm:justify-end justify-center*/}
+<div className="flex justify-between items-center flex-wrap mt-10 b text-white border-t border-gray-100 bg-black sm:px-16 py-10">
           <p className="">@2024 Moneks Auto. All Right Reserved</p>
           <div className="footer__copyrights-link">
             <Link

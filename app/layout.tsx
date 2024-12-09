@@ -1,25 +1,17 @@
-import { Metadata } from "next";
 import "./globals.css";
-import { Footer, Navbar } from "@/components";
 
+import { Footer, NavBar } from "@/components";
 
-
-export const metadata: Metadata = {
-  title: "Luxury SUV Sales, Repairs & Maintenance | Premium Service",
-  description: "Discover top-notch luxury SUVs, expert repairs, and reliable maintenance services. Elevate your driving experience with seamless solutions tailored to premium vehicles.",
+export const metadata = {
+  title: "Car Hub",
+  description: "Discover world's best car showcase application",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body
-        className="relative"
-      >
-        <Navbar />
+    <html lang='en'>
+      <body className='relative'>
+        <NavBar />
         {children}
         <Footer />
       </body>
