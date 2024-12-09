@@ -29,32 +29,36 @@ const SearchBar = () => {
     if (manufacturer.trim() === "" && model.trim() === "") {
       return alert("Please provide some input");
     }
-
     updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
   };
 
   const updateSearchParams = (model: string, manufacturer: string) => {
     // Create a new URLSearchParams object using the current URL search parameters
-    const searchParams = new URLSearchParams(window.location.search);
+    const searchParams = new URLSearchParams(window.location.search); // if there was something search before we need to know it and store it thr "new URLSearchParams()" but we want to update it or delete as seen below
+
 
     // Update or delete the 'model' search parameter based on the 'model' value
-    if (model) {
+    if (model) { // so if we have a model we want to search for, then we do "searchParams.set("model", model);"
       searchParams.set("model", model);
     } else {
-      searchParams.delete("model");
+      searchParams.delete("model"); // if we dont have a model, we just want to delete the one there
     }
 
-    // Update or delete the 'manufacturer' search parameter based on the 'manufacturer' value
+
+
+    // Same thing for manufacturer Update or delete the 'manufacturer' search parameter based on the 'manufacturer' value
     if (manufacturer) {
       searchParams.set("manufacturer", manufacturer);
     } else {
        searchParams.delete("manufacturer");
     }
 
+
+
     // Generate the new pathname with the updated search parameters
     const newPathname = `${window.location.pathname}?${searchParams.toString()}`;
 
-    router.push(newPathname);
+    router.push(newPathname); // to push the new path name
   };
 
   return (
@@ -85,6 +89,12 @@ const SearchBar = () => {
         <SearchButton otherClasses='sm:hidden' />
       </div>
       <SearchButton otherClasses='max-sm:hidden' />
+{/* As expected am suppose to make an api api call for each search or changes nope! instead am changing the url param in the address bar
+like querying vehicle name & model then nextJs will make a server side call & get the data....so the only is to change the parameters
+
+
+ */}
+
     </form>
   );
 };
