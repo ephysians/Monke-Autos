@@ -34,7 +34,7 @@ export default async function Home() {
         {/* Here I am conditionally displaying the cars */}
         {!isDataEmpty ? (
           <section >
-            <div className="flex gap-4 overflow-x-auto">
+            <div className="">
               {allCars?.map((car, index) => {
                 return <CarCard key={index} car={car} />;
               })}
