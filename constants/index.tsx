@@ -99,3 +99,32 @@ export const manufacturers = [
       ],
     },
   ];
+
+
+  export const OurOfferValues = [
+    {
+      title: "Tyres",
+      image: "",
+      text: "Tyres are the most important part of your car. It is these four pieces of...",
+      readmoreUrl: "",
+    },
+    {
+      title: "MOT",
+      image: "",
+      text: "MOTs in Southampton are a legal requirement. Every year, cars over three y...",
+      readmoreUrl: "",
+
+    },
+    {
+      title: "Car Servicing",
+      image: "",
+      text: "While an MOT will make sure your car is roadworthy, servicing it will make...",
+      readmoreUrl: "",
+    },
+    {
+      title: "Clutch Replacements",
+      image: "",
+      text: "When you need clutch repairs in Southampton, look no further than Monks Au...",
+      readmoreUrl: "",
+    },
+  ];
