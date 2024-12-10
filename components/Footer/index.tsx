@@ -5,11 +5,11 @@ import { footerLinks } from "@/constants";
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col text-white mt-5 border-t border-gray-100 bg-black sm:px-16">
+    <footer className="flex flex-col text-white mt-5 border-t border-gray-100 bg-[#2b0d22] sm:px-16">
       <div className="flex max-md:flex-col flex-wrap justify-between gap-5 sm:px-16 px-6 py-10">
         <div className="flex flex-col justify-start item-start gap-6">
           <Image
-            src="/logo.svg"
+            src="/footer-logo.svg"
             alt="logo"
             width={118}
             height={18}
@@ -37,25 +37,21 @@ const Footer = () => {
             </div>
           ))}
         </div>
-      </div>  {/* flex-1 flex sm:justify-end justify-center*/}
-<div className="flex justify-between items-center flex-wrap mt-10 b text-white border-t border-gray-100 bg-black sm:px-16 py-10">
-          <p className="">@2024 Moneks Auto. All Right Reserved</p>
-          <div className="footer__copyrights-link">
-            <Link
-              href="/"
-              className="text-gray-500">
-              Privacy Policy
-            </Link>
-            <Link
-              href="/"
-              className="text-gray-500">
-              Terms of Use
-            </Link>
-          </div>
+      </div>{" "}
+      {/* flex-1 flex sm:justify-end justify-center*/}
+      <div className="flex justify-between items-center flex-wrap mt-10 b text-white border-t border-gray-100 bg-[#2b0d22] sm:px-16 py-10">
+        <p className="">@2024 Moneks Auto. All Right Reserved</p>
+        <div className="footer__copyrights-link">
+          <Link href="/" className="text-gray-500">
+            Privacy Policy
+          </Link>
+          <Link href="/" className="text-gray-500">
+            Terms of Use
+          </Link>
         </div>
-
+      </div>
     </footer>
   );
 };
 
-export default Footer;   
+export default Footer;

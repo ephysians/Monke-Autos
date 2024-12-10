@@ -7,11 +7,12 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'cdn.imagin.studio',
-        pathname: '/getimage**', // Allows URLs starting with "/getimage"
+        pathname: '/getimage**', // Existing configuration
       },
     ],
   },
 };
 
 module.exports = nextConfig;
+
 
