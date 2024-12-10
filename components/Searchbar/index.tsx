@@ -27,13 +27,13 @@ const Searchbar = () => {
 
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    if (manufacturer.trim() === "" && model.trim() === "") {
+  
+    if ((manufacturer?.trim() || "") === "" && (model?.trim() || "") === "") {
       return alert("Please provide some input");
     }
-
+  
     updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
-  };
+  };  
 
   const updateSearchParams = (model: string, manufacturer: string) => {
     // Create a new URLSearchParams object using the current URL search parameters
