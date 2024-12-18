@@ -7,24 +7,26 @@ const Offers = () => {
       {OurOfferValues.map((offer, index) => (
         <div
           key={index}
-          className="flex-shrink-0 p-4 bg-white border w-[286px] h-[387px] "
+          className="flex-shrink-0 p-4 bg-white w-[286px] h-[387px] "
         >
-          <div className="border-b-2 text-center">
+          <div className="border-b-2 border-black text-center mb-6">
             <h3 className="text-lg font-bold mb-2 ">{offer.title}</h3>
           </div>
 
           <div>
             <Image
-              src={offer.image}
-              alt={offer.title}
+              src={`/images/${offer.image.split('/').pop()}`}  // Assuming images are in the public/images folder
+              alt={offer.alt1}
               width={256}
               height={160}
               className=" w-full h-[181px]"
             />
-            <p className="text-sm text-gray-600">{offer.text}</p>
+            <p className="text-sm text-gray-600 mb-8">{offer.text}</p>
             {offer.readmoreUrl && (
               <div className=" w-full bg-primary-blue p-5 h-[34px] text-center">
-                <a href={offer.readmoreUrl} className="text-center text-white">Read more</a>
+                <a href={offer.readmoreUrl} className="text-center text-white">
+                  Read more
+                </a>
               </div>
             )}
           </div>
