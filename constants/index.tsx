@@ -113,7 +113,24 @@ export const manufacturers = [
       image: "/assets/images/MOT.jpg",
       text: "MOTs in Southampton are a legal requirement. Every year, cars over three y...",
       readmoreUrl: "",
-
+    },
+    {
+      title: "Car Servicing",
+      image: "/assets/images/carServicing.jpg",
+      text: "While an MOT will make sure your car is roadworthy, servicing it will make...",
+      readmoreUrl: "",
+    },
+    {
+      title: "Clutch Replacements",
+      image: "/assets/images/clutches.jpg",
+      text: "When you need clutch repairs in Southampton, look no further than Monks Au...",
+      readmoreUrl: "",
+    },
+    {
+      title: "MOT",
+      image: "/assets/images/MOT.jpg",
+      text: "MOTs in Southampton are a legal requirement. Every year, cars over three y...",
+      readmoreUrl: "",
     },
     {
       title: "Car Servicing",
