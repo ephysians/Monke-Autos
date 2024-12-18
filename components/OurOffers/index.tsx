@@ -3,13 +3,13 @@ import Image from "next/image";
 
 const Offers = () => {
   return (
-    <div className="flex overflow-x-auto gap-4 py-7 px-8 mx-20 items-center justify-center h-auto">
+    <div className="flex overflow-x-auto gap-2 py-7 px-6 mx-20 items-center justify-center h-auto">
       {OurOfferValues.map((offer, index) => (
         <div
           key={index}
           className="flex-shrink-0 p-4 bg-white w-[286px] h-[387px] "
         >
-          <div className="border-b-2 border-black text-center mb-6">
+          <div className="!border-b-[1px] border-black text-center mb-6">
             <h3 className="text-lg font-bold mb-2 ">{offer.title}</h3>
           </div>
 
@@ -23,7 +23,7 @@ const Offers = () => {
             />
             <p className="text-sm text-gray-600 mb-8">{offer.text}</p>
             {offer.readmoreUrl && (
-              <div className="w-full bg-primary-blue h-[34px] border-1.5 border-yellow-400 text-white flex items-center justify-center">
+              <div className="w-full bg-primary-blue p-5 h-[34px]  text-white flex items-center justify-center rounded-md">
                 <a href={offer.readmoreUrl} className="text-white">
                   Read more
                 </a>
