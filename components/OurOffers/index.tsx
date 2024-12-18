@@ -1,12 +1,14 @@
 import { OurOfferValues } from "@/constants";
 
+
+
 const Offers = () => {
   return (
-    <div className="flex overflow-x-auto gap-4 p-4">
+    <div className="flex overflow-x-auto gap-4 py-7 px-10 mx-20">
       {OurOfferValues.map((offer, index) => (
         <div
           key={index}
-          className="flex-shrink-0 w-64 p-4 bg-white border rounded-lg shadow-md"
+          className="flex-shrink-0 w-64 p-4 bg-white border rounded-lg shadow-md "
         >
           <img
             src={offer.image}
