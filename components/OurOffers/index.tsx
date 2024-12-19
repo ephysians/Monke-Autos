@@ -5,7 +5,7 @@ import Link from "next/link";
 const Offers = () => {
   return (
     <div>
-      <div className="flex overflow-x-auto gap-2 px-6 mx-20 items-center justify-center h-auto">
+      <div className="flex overflow-x-auto gap-4 mx-[50px] px-50 items-center justify-center h-auto">
         {OurOfferValues.map((offer, index) => (
           <div
             key={index}
