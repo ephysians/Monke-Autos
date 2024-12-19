@@ -18,11 +18,16 @@ export default async function Home({ searchParams }: HomeProps) {
   return (
     <main className="overflow-hidden">
       <Hero />
-
-      <div className="mt-12 padding-x padding-y max-width" id="discover">
+      <div
+        className=" relative bottom-10 mt-10 padding-x padding-y  border w-full bg-gray-100"
+        id="discover"
+      >
         <div className="home__text-container">
           <h1 className="text-4xl font-extrabold">Car Catalogue</h1>
-          <p>Explore premium cars, expert repairs, and top-notch maintenance solutions.</p>
+          <p>
+            Explore premium cars, expert repairs, and top-notch maintenance
+            solutions.
+          </p>
         </div>
 
         <div className="home__filters">
@@ -40,6 +45,7 @@ export default async function Home({ searchParams }: HomeProps) {
               {allCars?.map((car, index) => (
                 <CarCard key={index} car={car} />
               ))}
+              <div className="mt-8 mb-8 w-full h-[0.125rem].125rem bg-gray-50" />
             </div>
 
             <ShowMore
@@ -52,11 +58,10 @@ export default async function Home({ searchParams }: HomeProps) {
         ) : (
           <div className="home__error-container">
             <h2 className="text-black text-xl font-bold">Oops, no results</h2>
-            <p>{allCars?.message || 'No details available'}</p>
+            <p>{allCars?.message || "No details available"}</p>
           </div>
         )}
       </div>
-
       <OurOffers />
     </main>
   );
