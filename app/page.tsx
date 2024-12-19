@@ -19,7 +19,7 @@ export default async function Home({ searchParams }: HomeProps) {
     <main className="overflow-hidden">
       <Hero />
       <div
-        className=" relative bottom-10 mt-10 padding-x padding-y  border w-full bg-gray-100"
+        className=" relative bottom-10 mt-10 padding-x padding-y w-full bg-gray-100"
         id="discover"
       >
         <div className="home__text-container">
